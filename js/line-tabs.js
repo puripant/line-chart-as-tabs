@@ -10,7 +10,7 @@ const data = [
   { x: 'Saturday', y: Math.random() },
 ];
 
-const chart = new ThreesyLine({
+const lineChart = new ThreesyLine({
   height: 300,
   width: 600,
   element: '#chart',
@@ -20,11 +20,11 @@ const chart = new ThreesyLine({
 
 const getValue = ThreesyLine.getValue;
 
-chart.draw();
+lineChart.draw();
 
 // Enable tooltips using Tether tooltip.
-chart.dataPoints
-  .attr('data-tooltip', (d) => { `${getValue(chart.accessorX, d)}: ${getValue(chart.accessorY, d).toFixed(3)}` })
+lineChart.dataPoints
+  .attr('data-tooltip', d => `${getValue(lineChart.accessorX, d)}: ${getValue(lineChart.accessorY, d).toFixed(3)}`)
   .attr('data-tooltip-position', 'top center');
 
 const updateBtn = document.getElementById('update-btn');
@@ -32,14 +32,14 @@ const togglePointsBtn = document.getElementById('toggle-data-points');
 const toggleGridLines = document.getElementById('toggle-grid-lines');
 
 updateBtn.onclick = () => {
-  data.forEach((d) => { d.y = Math.random(); });
-  chart.update(data, true);
+  data.forEach(d => (d.y = Math.random()));
+  lineChart.update(data, true);
 };
 
 togglePointsBtn.onclick = () => {
-  chart.toggleDataPoints();
+  lineChart.toggleDataPoints();
 };
 
 toggleGridLines.onclick = () => {
-  chart.toggleGridLines();
+  lineChart.toggleGridLines();
 };
