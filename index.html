@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<title>Threesy Line Chart</title>
+<!-- Tether tooltip JS dependencies -->
+<script src="js/tether.min.js"></script>
+<script src="js/drop.min.js"></script>
+<script src="js/tooltip.min.js"></script>
+
+<!-- ThreesyLine dependencies. Styles can be overriden -->
+<script src="../dist/threesy-line.js"></script>
+<link rel="stylesheet" href="../dist/threesy-line.css">
+
+<!-- Tether tooltip CSS dependency -->
+<link rel="stylesheet" href="css/tooltip-theme-arrows.css">
+<style>
+    .container {
+        width: 900px;
+        padding: 40px 100px;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+    }
+
+    button {
+        height: 30px;
+        width: auto;
+        border-radius: 2px;
+        background-color: #fff;
+        border: 1px solid #CCC;
+    }
+
+    button:hover {
+        background-color: #EEEEEE;
+        cursor: pointer;
+    }
+
+    button:active {
+        background-color: #E0E0E0;
+        box-shadow: inset 0 0 8px #BDBDBD;
+    }
+
+    button:focus {
+        outline: 0;
+    }
+
+    .tooltip-element {
+        font-family: "proxima-nova", "Helvetica Neue", sans-serif;
+        font-size: 0.8em;
+    }
+</style>
+<div class="container">
+    <div id="chart"></div>
+</div>
+<div class="container">
+    <button type="button" id="update-btn">UPDATE</button>
+    <button type="button" id="toggle-data-points">TOGGLE DATA POINTS</button>
+    <button type="button" id="toggle-grid-lines">TOGGLE GRID LINES</button>
+</div>
+<script>
+  var data = [
+    {x: "Sunday", y: Math.random()},
+    {x: "Monday", y: Math.random()},
+    {x: "Tuesday", y: Math.random()},
+    {x: "Wednesday", y: Math.random()},
+    {x: "Thursday", y: Math.random()},
+    {x: "Friday", y: Math.random()},
+    {x: "Saturday", y: Math.random()}
+  ];
+
+  var chart = new ThreesyLine({
+    height: 300,
+    width: 600,
+    element: "#chart",
+    classes: ["threesy-line-chart", "line-chart"],
+    data: data
+  });
+
+  var getValue = ThreesyLine.getValue;
+
+  var tooltip;
+
+  chart.draw();
+
+  // Enable tooltips using Tether tooltip.
+  chart.dataPoints
+      .attr("data-tooltip", (d) => `${getValue(chart.accessorX, d)}: ${getValue(chart.accessorY, d).toFixed(3)}`)
+      .attr("data-tooltip-position", "top center");
+
+  var updateBtn = document.getElementById("update-btn");
+  var togglePointsBtn = document.getElementById("toggle-data-points");
+  var toggleGridLines = document.getElementById("toggle-grid-lines");
+
+  updateBtn.onclick = () => {
+    data.forEach((d) => d.y = Math.random());
+    chart.update(data, true);
+  };
+
+  togglePointsBtn.onclick = () => {
+    chart.toggleDataPoints();
+  };
+
+  toggleGridLines.onclick = () => {
+    chart.toggleGridLines();
+  };
+</script>
