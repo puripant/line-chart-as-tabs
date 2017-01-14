@@ -1,0 +1,24 @@
+{
+  "name": "line-chart-as-tabs",
+  "version": "1.0.0",
+  "description": "A line chart whose data points work as tabs. Clicking on each of them will update the data table below the chart.",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/puripant/line-chart-as-tabs.git"
+  },
+  "author": "Puripant Ruchikachorn",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/puripant/line-chart-as-tabs/issues"
+  },
+  "homepage": "https://github.com/puripant/line-chart-as-tabs#readme",
+  "devDependencies": {
+    "eslint": "^3.13.1",
+    "eslint-config-airbnb-base": "^11.0.1",
+    "eslint-plugin-import": "^2.2.0"
+  }
+}
