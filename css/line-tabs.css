@@ -1,5 +1,5 @@
 .container {
-  width: 600px;
+  width: 500px;
   margin: 20px auto;
   text-align: center;
 }
@@ -27,4 +27,20 @@
 .tooltip-element {
   font-family: 'proxima-nova', 'Helvetica Neue', sans-serif;
   font-size: 0.8em;
+}
+
+table {
+  width: 100%;
+  font-family: 'proxima-nova', 'Helvetica Neue', sans-serif;
+  font-size: 0.8em;
+  border-collapse: collapse;
+}
+th {
+  font-weight: bold;
+  padding: 8px;
+  border-bottom: 2px solid #ddd;
+}
+td {
+  padding: 8px;
+  border-top: 1px solid #ddd;
 }
