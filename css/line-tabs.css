@@ -4,7 +4,27 @@
   text-align: center;
 }
 
+.axis {
+  opacity: 0.5;
+}
+
+.threesy-line .threesy-grid-line {
+  stroke: lightgray;
+}
+.threesy-grid-line-y {
+  display: none;
+}
+
+.threesy-line path.line {
+  stroke: darkgray;
+}
+
+.threesy-line .threesy-data-point {
+  fill: darkgray;
+  stroke: darkgray;
+}
+
 .tooltip-element {
-  font-family: "proxima-nova", "Helvetica Neue", sans-serif;
+  font-family: 'proxima-nova', 'Helvetica Neue', sans-serif;
   font-size: 0.8em;
 }
