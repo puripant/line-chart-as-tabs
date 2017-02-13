@@ -1,3 +1,8 @@
+html {
+  font-size: 12px;
+  font-family: 'proxima-nova', 'Helvetica Neue', sans-serif;
+}
+
 .container {
   width: 500px;
   margin: 20px auto;
@@ -26,29 +31,18 @@
   stroke: darkgray;
 }
 
-.tooltip-element {
-  font-family: 'proxima-nova', 'Helvetica Neue', sans-serif;
-  font-size: 0.8em;
-}
-.tooltip-element .tooltip-content {
-  background: #FF576C !important;
-}
-.tooltip-element .tooltip-content:before {
-  border-top-color: #FF576C !important;
-}
-
 table {
   width: 100%;
-  font-family: 'proxima-nova', 'Helvetica Neue', sans-serif;
-  font-size: 0.8em;
   border-collapse: collapse;
 }
 th {
-  font-weight: bold;
+  font-size: 2rem;
+  font-weight: 200;
   padding: 8px;
-  border-bottom: 2px solid #ddd;
+}
+tbody tr:nth-child(odd) {
+  background-color: #f5f5f5;
 }
 td {
   padding: 8px;
-  border-top: 1px solid #ddd;
 }
