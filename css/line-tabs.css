@@ -30,6 +30,12 @@
   font-family: 'proxima-nova', 'Helvetica Neue', sans-serif;
   font-size: 0.8em;
 }
+.tooltip-element .tooltip-content {
+  background: #FF576C !important;
+}
+.tooltip-element .tooltip-content:before {
+  border-top-color: #FF576C !important;
+}
 
 table {
   width: 100%;
