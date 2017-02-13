@@ -8,10 +8,12 @@
   opacity: 0.5;
 }
 
-.threesy-line .threesy-grid-line {
+.threesy-line .threesy-grid-line-x {
   stroke: lightgray;
 }
-.threesy-grid-line-y {
+.threesy-line .threesy-grid-line-y {
+  stroke: #FF576C;
+  stroke-dasharray: 5;
   display: none;
 }
 

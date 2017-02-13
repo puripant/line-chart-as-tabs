@@ -15,6 +15,9 @@ data.forEach((_, i) => {
 });
 let selectedDatum = data[data.length - 1];
 
+const active_color = '#FF576C';
+const inactive_color = 'darkgray';
+
 const lineChart = new ThreesyLine({
   height: 200,
   width: 500,
@@ -34,17 +37,21 @@ const tr = tbody.selectAll('tr')
 const selectPoint = (datum) => {
   // Update chart
   d3.selectAll('.threesy-data-point')
-      .style('stroke', 'darkgray')
-      .style('fill', 'darkgray')
+      .style('stroke', inactive_color)
+      .style('fill', inactive_color)
     .filter(d => d === datum)
-      .style('stroke', 'darkred')
-      .style('fill', 'darkred');
+      .style('stroke', active_color)
+      .style('fill', active_color);
   d3.selectAll('.threesy-grid-line-x')
       .style('stroke', 'lightgray')
       .style('stroke-dasharray', '5, 5')
     .filter(d => d === datum)
-      .style('stroke', 'darkred')
+      .style('stroke', active_color)
       .style('stroke-dasharray', '5, 0');
+  d3.selectAll('.threesy-grid-line-y')
+      .style('display', 'none')
+    .filter(d => d === datum)
+      .style('display', 'unset');
 
   // Update table
   selectedDatum = datum;
